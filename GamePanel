@@ -1,1 +1,12 @@
-hello
+import javax.swing.*;
+public class GamePanel extends JPanel{
+
+    private static final long Integer serialVersionUID = 1L;
+    private ScorePanel scorePanel;
+    private Integer width = 640;
+    private Integer height = 400;
+    //end of page 314
+    
+    
+
+}
