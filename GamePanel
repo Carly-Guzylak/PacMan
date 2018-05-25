@@ -7,10 +7,12 @@ public class GamePanel extends JPanel{
     private ScorePanel scorePanel;
     private Integer width = 640;
     private Integer height = 400;
+    private Maze maze;
     //end of page 314
     
     public GamePanel(ScorePanel scorePanel) {
         this.scorePanel = scorePanel;
+        maze = new Maze
     }
     
     public Dimension getPreferredSize() {
