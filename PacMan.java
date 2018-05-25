@@ -1,3 +1,4 @@
+//Exit Code for Normal Exit = 0
 //Exit Code for NullPointerException = 1
 //Exit Code for IOExeption = 2
 
