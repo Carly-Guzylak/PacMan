@@ -5,14 +5,16 @@ public class GamePanel extends JPanel{
 
     private static final long serialVersionUID = 1L;
     private ScorePanel scorePanel;
-    private Integer width = 640;
-    private Integer height = 400;
+    private int width = 640;
+    private int height = 400;
     private Maze maze;
     //end of page 314
     
     public GamePanel(ScorePanel scorePanel) {
         this.scorePanel = scorePanel;
-        maze = new Maze
+        maze = new Maze();
+        width = maze.getWidth();
+        height = maze.getHeight();
     }
     
     public Dimension getPreferredSize() {
