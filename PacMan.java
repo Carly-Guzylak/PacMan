@@ -1,3 +1,6 @@
+//Exit Code for NullPointerException = 1
+//Exit Code for IOExeption = 2
+
 import java.awt.*;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
