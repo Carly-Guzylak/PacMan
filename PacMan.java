@@ -3,13 +3,8 @@
 //Exit Code for IOExeption = 2
 
 import java.awt.*;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.UIManager;
-import javax.swing.SwingUtilities;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.BoxLayout;
+import javax.swing.*;
+import java.io.*;
 
 public class PacMan extends JPanel {
     private static final long serialVersionUID = 1L;
