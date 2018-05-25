@@ -13,4 +13,37 @@ public class Maze {
     public Maze() {
         readMazeData();
     }
+    private void readMazeData() {
+        try {
+            InputStream input = getClass().getResourceAsStream(FILE_NAME));
+            BufferedReader in = new BufferedReader(InputStreamReader(input));
+            String line = in.readLine();
+            while(!(line.equals(null))){
+                mazeData.add(line);   
+                line = in.readLine();
+            }
+            in.close();
+            rows = mazeData.size();
+            line = mazeData.get(0);
+            columns = line.length();
+            //end of page 318
+        }    
+        catch(NullPointerException) {
+            String message = "File not found.";
+            JOptionPane.showMessageDialog(message);
+            System.exit(1);
+        }
+        catch(IOException) {
+            String message = "File cannot be opened."; 
+            JOptionPane.showMessageDialog(message);
+            System.exit(2);
+        }
+    }
+    public int getWidth() {
+        return columns * CELL_SIZE;    
+    }
+    public int getHeight() {
+        return rows * CELL_SIZE;    
+    }
+    //end of page 319
 }
