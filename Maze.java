@@ -1,6 +1,9 @@
+import java.io.*;
+import java.util.*;
+
 public class Maze {
     public static final int CELL_SIZE = 30;
-    public static final String FILE_NAME = "/maze.txt"
+    public static final String FILE_NAME = "/maze.txt";
     private static final int HALF_CELL_SIZE = CELL_SIZE / 2;
     private static final int QUARTER_CELL_SIZE = CELL_SIZE / 4;
     private static final int TYPE_PATH = 0;
@@ -15,7 +18,7 @@ public class Maze {
     }
     private void readMazeData() {
         try {
-            InputStream input = getClass().getResourceAsStream(FILE_NAME));
+            InputStream input = getClass().getResourceAsStream(FILE_NAME);
             BufferedReader in = new BufferedReader(InputStreamReader(input));
             String line = in.readLine();
             while(!(line.equals(null))){
@@ -28,12 +31,12 @@ public class Maze {
             columns = line.length();
             //end of page 318
         }    
-        catch(NullPointerException) {
+        catch(NullPointerException e) {
             String message = "File not found.";
             JOptionPane.showMessageDialog(message);
             System.exit(1);
         }
-        catch(IOException) {
+        catch(IOException e) {
             String message = "File cannot be opened."; 
             JOptionPane.showMessageDialog(message);
             System.exit(2);
