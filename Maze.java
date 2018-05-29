@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import javax.swing.*;
 
 public class Maze {
     public static final int CELL_SIZE = 30;
@@ -11,7 +12,7 @@ public class Maze {
     private static final int TYPE_CHEESE = 2;
     private int rows;
     private int columns;
-    private ArrayList<String> mazeData = Maze();
+    private ArrayList<String> mazeData = new ArrayList<String>();
   
     public Maze() {
         readMazeData();
@@ -19,9 +20,9 @@ public class Maze {
     private void readMazeData() {
         try {
             InputStream input = getClass().getResourceAsStream(FILE_NAME);
-            BufferedReader in = new BufferedReader(InputStreamReader(input));
+            BufferedReader in = new BufferedReader(new InputStreamReader(input));
             String line = in.readLine();
-            while(!(line.equals(null))){
+            while(line != null){
                 mazeData.add(line);   
                 line = in.readLine();
             }
@@ -33,12 +34,12 @@ public class Maze {
         }    
         catch(NullPointerException e) {
             String message = "File not found.";
-            JOptionPane.showMessageDialog(message);
+            JOptionPane.showMessageDialog(null, message);
             System.exit(1);
         }
         catch(IOException e) {
             String message = "File cannot be opened."; 
-            JOptionPane.showMessageDialog(message);
+            JOptionPane.showMessageDialog(null, message);
             System.exit(2);
         }
     }
