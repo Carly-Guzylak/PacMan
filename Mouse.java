@@ -51,4 +51,8 @@ public class Mouse {
         int yPos = y + offsetY[direction];
         g.drawImage(image[direction], xPos, yPos, null);
     }
+        
+    public void turn(int direction) {
+        this.direction = direction;
+    }
 }
