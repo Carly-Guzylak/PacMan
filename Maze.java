@@ -106,12 +106,14 @@ public class Maze {
     public void draw(Graphics g) {
         for(int row = 0; row < rows; row++) {
             for(int col = 0; col < cols; col++) {
+                //draw wall
                 if(cell[row][col] != TYPE_WALL) {
                     int x = col * CELL_SIZE;
                     int y = row * CELL_SIZE;
                     g.setColor(white);
                     g.fillRect(x, y, CELL_SIZE, CELL_SIZE);
                 }
+                //draw cheese
                 if(cell[row][col] == TYPE_CHEESE) {
                     g.setColor(yellow);
                     g.fillOval(x + QUARTER_CELL_SIZE, y + QUARTER_CELL_SIZE, HALF_CELL_SIZE, HALF_CELL_SIZE);
