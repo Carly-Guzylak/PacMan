@@ -15,7 +15,7 @@ public class GamePanel extends JPanel{
         maze = new Maze();
         width = maze.getWidth();
         height = maze.getHeight();
-        mouse = Mouse(gamePanel, 
+        mouse = Mouse(this.gamePanel, 
     }
     
     public Dimension getPreferredSize() {
