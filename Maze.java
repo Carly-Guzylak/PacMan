@@ -43,9 +43,14 @@ public class Maze {
             columns = line.length();
             //end of page 318
             cell = new Array[rows][columns];
-            for(int row = 0; row <= rows; row++) {
+            //Note from Book: Maze Data file uses the capital letter M to represent the starting cell
+            // for the main mouse, the capital letter C to represent the starting cell for the cat, and
+            // the lowercase letter m to represent the cell for the extra mice.  In file provided,
+            // main mouse will be in a path without cheese, cat will be in a path with cheese, and extra
+            // mice will be in wall area.
+            for(int row = 0; row < rows; row++) {
                 line = mazeData.get(row);
-                for(int col = 0; col <= columns; col++) {
+                for(int col = 0; col < columns; col++) {
                     char c = line.charAt(col);   
                     switch (c) {
                         case 1: c = 'X';    
@@ -57,7 +62,25 @@ public class Maze {
                         case 3: c = '.';
                             cell[row][col] = TYPE_CHEESE;
                             cheeseCount++;
-                            breakl;
+                            break;
+                        case 4: c = 'M'
+                            cell[row][col] = TYPE_PATH;
+                            mouseRow = row;
+                            mouseCol = col;
+                            break;
+                        case 5: c = 'C';
+                            cell[row][col] = TYPE_CHEESE;
+                            catRow = row;
+                            catCol = col;
+                            cheeseCount++;
+                            break;
+                        case 6: c = 'm';  
+                            cell[row][col] = TYPE_WALL;
+                            int x = col * CELL_SIZE;
+                            int y = row * CELL_SIZE;
+                            extraMiceX.add(x);
+                            extraMiceY.add(y);
+                        //end of page 323    
                     }//switch
                 }//2nd for
             }//1st for
@@ -80,4 +103,22 @@ public class Maze {
         return rows * CELL_SIZE;    
     }
     //end of page 319
+    public void draw(Graphics g) {
+        for(int row = 0; row < rows; row++) {
+            for(int col = 0; col < cols; col++) {
+                if(cell[row][col] != TYPE_WALL) {
+                    int x = col * CELL_SIZE;
+                    int y = row * CELL_SIZE;
+                    g.setColor(white);
+                    g.fillRect(x, y, CELL_SIZE, CELL_SIZE);
+                }
+                if(cell[row][col] == TYPE_CHEESE) {
+                    g.setColor(yellow);
+                    g.fillOval(x + QUARTER_CELL_SIZE, y + QUARTER_CELL_SIZE, HALF_CELL_SIZE, HALF_CELL_SIZE);
+                }
+                }
+            }
+        }
+        //end of page 324
+    }
 }
