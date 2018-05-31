@@ -28,6 +28,7 @@ public class GamePanel extends JPanel{
         g.setColor(Color.GREEN);
         g.fillRect(0, 0, width, height);
         //maze
+        maze.draw(g);
         //mouse
         mouse.draw();
         //extra mice
