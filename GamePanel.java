@@ -20,7 +20,7 @@ public class GamePanel extends JPanel{
     }
     
  //   private void initGUI() {
-  //      setFocusable();
+  //      setFocusable(true);
    //     requestFocusInWindow();
         //listeners
   //      addKeyListener(new KeyAdapter()) {
