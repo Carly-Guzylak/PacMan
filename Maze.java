@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class Maze {
     public static final int CELL_SIZE = 30;
@@ -66,7 +67,7 @@ public class Maze {
                             cell[row][col] = TYPE_CHEESE;
                             cheeseCount++;
                             break;
-                        case 4: c = 'M'
+                        case 4: c = 'M';
                             cell[row][col] = TYPE_PATH;
                             mouseRow = row;
                             mouseCol = col;
@@ -91,12 +92,12 @@ public class Maze {
             }//1st for
         }//try    
         catch(NullPointerException e) {
-            String message = Maze file " + FILE_NAME + " could not be found";
+            String message = "Maze file " + FILE_NAME + " could not be found";
             JOptionPane.showMessageDialog(null, message);
             System.exit(1);
         }
         catch(IOException e) {
-            String message = Maze file " + FILE_NAME + " could not be opened"; 
+            String message = "Maze file " + FILE_NAME + " could not be opened"; 
             JOptionPane.showMessageDialog(null, message);
             System.exit(2);
         }
@@ -133,7 +134,6 @@ public class Maze {
                 if(cell[row][col] == TYPE_CHEESE) {
                     g.setColor(yellow);
                     g.fillOval(x + QUARTER_CELL_SIZE, y + QUARTER_CELL_SIZE, HALF_CELL_SIZE, HALF_CELL_SIZE);
-                }
                 }
             }
         }
