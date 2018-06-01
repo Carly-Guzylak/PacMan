@@ -80,20 +80,28 @@ public class Maze {
                             int y = row * CELL_SIZE;
                             extraMiceX.add(x);
                             extraMiceY.add(y);
+                        default:
+                            throw new InvalidMazeCharacterException(c, FILE_NAME);
                         //end of page 323    
                     }//switch
                 }//2nd for
             }//1st for
         }//try    
         catch(NullPointerException e) {
-            String message = "File not found.";
+            String message = Maze file " + FILE_NAME + " could not be found";
             JOptionPane.showMessageDialog(null, message);
             System.exit(1);
         }
         catch(IOException e) {
-            String message = "File cannot be opened."; 
+            String message = Maze file " + FILE_NAME + " could not be opened"; 
             JOptionPane.showMessageDialog(null, message);
             System.exit(2);
+        }
+        //page 327
+        catch(InvalidMazeCharacterException e) {
+            String message = e.getMessage();
+            JOptionPane.showMessageDialogue(null, message);
+            System.exit(3);
         }
     }
     public int getWidth() {
