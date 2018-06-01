@@ -19,8 +19,8 @@ public class Maze {
     private int mouseCol;
     private int catRow;
     private int calCol;
-    private ArrayList<Integer> extraMiceX = new ArrayList<Integer>;
-    private ArrayList<Integer> extraMiceY = new ArrayList<Integer>;
+    private ArrayList<Integer> extraMiceX = new ArrayList<Integer>();
+    private ArrayList<Integer> extraMiceY = new ArrayList<Integer>();
     //Note from book: Maze Data file has the capital letter X to represent walls,
     // a space to represent a path with nothing in it, and a period to represent a path
     // with a piece of cheese in it.
