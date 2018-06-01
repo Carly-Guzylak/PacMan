@@ -50,6 +50,9 @@ public class Maze {
             // mice will be in wall area.
             for(int row = 0; row < rows; row++) {
                 line = mazeData.get(row);
+                if(line.length() != columns) {
+                    throw new InvalidMazeRowLengthException(row, FILE_NAME) ; 
+                }
                 for(int col = 0; col < columns; col++) {
                     char c = line.charAt(col);   
                     switch (c) {
@@ -102,6 +105,11 @@ public class Maze {
             String message = e.getMessage();
             JOptionPane.showMessageDialogue(null, message);
             System.exit(3);
+        }
+        catch(InvalidMazeRowLengthException e) {
+            String message = e.getMessage();
+            JOptionPane.showMessageDialogue(null, message);
+            System.exit(4);
         }
     }
     public int getWidth() {
