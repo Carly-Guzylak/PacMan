@@ -40,6 +40,9 @@ public class GamePanel extends JPanel{
 //        case 4:    
  //           direction = Mouse.DIRECTION_RIGHT;
  //           break;
+    //    if (direction != Mouse.DIRECTION_NONE;
+     //       Mouse.turn(direction) ;
+  //          JPanel.repaint();
  //       //timers
  //   }
     
