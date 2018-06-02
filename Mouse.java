@@ -1,3 +1,9 @@
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.awt.Graphics;
+import javax.swing.JOptionPane;
+import javax.imageio.ImageIO;
+
 public class Mouse {
     //directions in clockwise rotational order
     public static final int DIRECTION_UP = 0;
@@ -40,14 +46,14 @@ public class Mouse {
         } 
         catch (IOException e) {
             String message = "Couldn't be read";
-            JOptionPane.showDialog(null, message);
+            JOptionPane.showMessageDialog(null, message);
             System.exit(5);
         }
     }
     
     public setImage(int direction, String fileName) throws IOException {
         InputStream input = getClass().getResourceAsStream(fileName);
-        image[input] = ImageIO.read();
+        image[direction] = ImageIO.read(input);
         int imageWidth = image[direction].getWidth();
         offsetX[direction] = Maze.CELL_SIZE - imageWidth;
         int imageHeight = image[direction].getHeight();
