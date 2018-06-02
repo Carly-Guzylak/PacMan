@@ -10,9 +10,6 @@ public class Mouse {
     public static final String MOUSE_LEFT = "mouseLeft.gif";
     public static final String MOUSE_RIGHT = "mouseRight.gif";
     private static final int DEFAULT_SPEED = 10;
-    private int changeX = 0;
-    private int changeY = 0;
-    private int speed;
     private GamePanel gamePanel;
     private Maze maze;
     private int x;
@@ -21,6 +18,9 @@ public class Mouse {
     private BufferedImage[] image = new BufferedImage[4];
     private int[] offsetX = new int[4];
     private int[] offsetY = new int[4];
+    private int changeX = 0;
+    private int changeY = 0;
+    private int speed;
     
     public Mouse(GamePanel gamePanel, Maze maze) [
         this.gamePanel = gamePanel;
@@ -28,6 +28,10 @@ public class Mouse {
         x = maze.getMouseX();
         y = maze.getMouseY();
         direction = DIRECTION_DOWN;
+        changeX = 0;
+        changeY = 1;
+        speed = DEFAULT_SPEED;
+        
         try {
             setImage(DIRECTION_UP, MOUSE_UP);
             setImage(DIRECTION_DOWN, MOUSE_DOWN);
@@ -58,5 +62,10 @@ public class Mouse {
         
     public void turn(int direction) {
         this.direction = direction;
+    }
+        
+    public void run() {
+        x = (x + changeX) * speed;
+        y = (y + changeY) * speed;
     }
 }
