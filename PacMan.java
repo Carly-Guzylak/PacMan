@@ -7,7 +7,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 
-public class PacMan extends JPanel {
+public class PacMan extends JFrame {
     private static final long serialVersionUID = 1L;
     private ScorePanel scorePanel = new ScorePanel(0, Color.YELLOW);
     private GamePanel gamePanel = new GamePanel(scorePanel);
