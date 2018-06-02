@@ -19,7 +19,7 @@ public class Maze {
     private int mouseRow;
     private int mouseCol;
     private int catRow;
-    private int calCol;
+    private int catCol;
     private ArrayList<Integer> extraMiceX = new ArrayList<Integer>();
     private ArrayList<Integer> extraMiceY = new ArrayList<Integer>();
     //Note from book: Maze Data file has the capital letter X to represent walls,
@@ -43,7 +43,7 @@ public class Maze {
             line = mazeData.get(0);
             columns = line.length();
             //end of page 318
-            cell = new Array[rows][columns];
+            cell = new int[rows][columns];
             //Note from Book: Maze Data file uses the capital letter M to represent the starting cell
             // for the main mouse, the capital letter C to represent the starting cell for the cat, and
             // the lowercase letter m to represent the cell for the extra mice.  In file provided,
