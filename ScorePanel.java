@@ -8,7 +8,7 @@ public class ScorePanel extends JPanel {
    public ScorePanel(int score, Color color) {
       super();
       this.score = "" + score;
-      setText(this.score);
+      scoreLabel.setText(this.score);
       setBackground(color);
       
    }
