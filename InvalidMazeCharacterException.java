@@ -1,12 +1,12 @@
 public class InvalidMazeCharacterException extends Exception {
     private static final long serialVersionUID = 1L;
-    private staic final String MESSAGE1 = "Invalid maze character";
-    private staic final String MESSAGE2 = "in file";   
+    private static final String MESSAGE1 = "Invalid maze character";
+    private static final String MESSAGE2 = "in file";   
     private char invalidCharacter;
     private String fileName;
     
     public InvalidMazeCharacterException (char invalidCharacter, String fileName) {
-        super(String.join(MESSAGE1, invalidCharacter, MESSAGE2, fileName));
+        super(String.join(MESSAGE1, Character.toString(invalidCharacter), MESSAGE2, fileName));
         this.invalidCharacter = invalidCharacter;
         this.fileName = fileName;
     }
