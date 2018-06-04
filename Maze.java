@@ -104,12 +104,12 @@ public class Maze {
         //page 327
         catch(InvalidMazeCharacterException e) {
             String message = e.getMessage();
-            JOptionPane.showMessageDialogue(null, message);
+            JOptionPane.showMessageDialog(null, message);
             System.exit(3);
         }
         catch(InvalidMazeRowLengthException e) {
             String message = e.getMessage();
-            JOptionPane.showMessageDialogue(null, message);
+            JOptionPane.showMessageDialog(null, message);
             System.exit(4);
         }
     }
@@ -122,18 +122,19 @@ public class Maze {
     //end of page 319
     public void draw(Graphics g) {
         for(int row = 0; row < rows; row++) {
-            for(int col = 0; col < cols; col++) {
+            for(int col = 0; col < columns; col++) {
                 //draw wall
                 if(cell[row][col] != TYPE_WALL) {
                     int x = col * CELL_SIZE;
                     int y = row * CELL_SIZE;
-                    g.setColor(white);
+                    g.setColor(Color.white);
                     g.fillRect(x, y, CELL_SIZE, CELL_SIZE);
-                }
-                //draw cheese
-                if(cell[row][col] == TYPE_CHEESE) {
-                    g.setColor(yellow);
-                    g.fillOval(x + QUARTER_CELL_SIZE, y + QUARTER_CELL_SIZE, HALF_CELL_SIZE, HALF_CELL_SIZE);
+                
+                    //draw cheese
+                    if(cell[row][col] == TYPE_CHEESE) {
+                        g.setColor(Color.yellow);
+                        g.fillOval(x + QUARTER_CELL_SIZE, y + QUARTER_CELL_SIZE, HALF_CELL_SIZE, HALF_CELL_SIZE);
+                    }
                 }
             }
         }
