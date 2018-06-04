@@ -3,7 +3,7 @@ import java.io.*;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
-
+//hello
 public class Mouse {
     //directions in clockwise rotational order
     public static final int DIRECTION_UP = 0;
@@ -19,7 +19,7 @@ public class Mouse {
     private GamePanel gamePanel;
     private Maze maze;
     private int x;
-    private int y;
+    private int y;//hi
     private int direction;
     private BufferedImage[] image = new BufferedImage[4];
     private int[] offsetX = new int[4];
