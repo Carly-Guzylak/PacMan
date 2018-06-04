@@ -1,8 +1,7 @@
 import java.awt.*;
 import java.io.*;
-import java.awt.Graphics;
-import javax.swing.JOptionPane;
-import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.imageio.*;
 //hello
 public class Mouse {
     //directions in clockwise rotational order
