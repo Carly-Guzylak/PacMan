@@ -28,7 +28,7 @@ public class Mouse {
     private int changeY = 0;
     private int speed;
     
-    public Mouse(GamePanel gamePanel, Maze maze) [
+    public Mouse(GamePanel gamePanel, Maze maze) {
         this.gamePanel = gamePanel;
         this.maze = maze;
         x = maze.getMouseX();
@@ -37,7 +37,7 @@ public class Mouse {
         changeX = 0;
         changeY = 1;
         speed = DEFAULT_SPEED;
-        
+    }    
         try {
             setImage(DIRECTION_UP, MOUSE_UP);
             setImage(DIRECTION_DOWN, MOUSE_DOWN);
