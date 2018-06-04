@@ -1,4 +1,4 @@
-import java.awt.image.BufferedImage;
+import java.awt.*;
 import java.io.*;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
@@ -37,7 +37,7 @@ public class Mouse {
         changeX = 0;
         changeY = 1;
         speed = DEFAULT_SPEED;
-    }    
+     
         try {
             setImage(DIRECTION_UP, MOUSE_UP);
             setImage(DIRECTION_DOWN, MOUSE_DOWN);

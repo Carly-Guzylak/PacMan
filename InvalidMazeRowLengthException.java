@@ -6,7 +6,7 @@ public class InvalidMazeRowLengthException extends Exception{
     private String fileName;
     
     public InvalidMazeRowLengthException(int invalidRow, String fileName) {
-       super(String.join(MESSAGE1, invalidRow, MESSAGE2, fileName));
+       super(String.join(MESSAGE1, String.valueOf(invalidRow), MESSAGE2, fileName));
        this.invalidRow = invalidRow;
        this.fileName = fileName;
     }

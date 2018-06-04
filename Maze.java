@@ -140,4 +140,10 @@ public class Maze {
         }
         //end of page 324
     }
+	public int getMouseX() {
+		return mouseCol * CELL_SIZE;
+	}
+	public int getMouseY() {
+		return mouseRow * CELL_SIZE;
+	}
 }
