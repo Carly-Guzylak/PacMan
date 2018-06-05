@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 public class GamePanel extends JPanel{
 
     private static final long serialVersionUID = 1L;
@@ -23,26 +26,30 @@ public class GamePanel extends JPanel{
         setFocusable(true);
         requestFocusInWindow();
         //listeners
-        addKeyListener(new KeyAdapter()) {
-        keypressed(KeyEvent e);
-        int direction = Mouse.DIRECTION_NONE;
-        int code = e.getKeyCode();
-        switch(direction) {
-        case 1:
-            direction = Mouse.DIRECTION_UP;
-            break;
-        case 2:
-            direction = Mouse.DIRECTION_DOWN;
-            break;
-        case 3:   
-            direction = Mouse.DIRECTION_LEFT;
-            break;
-        case 4:    
-            direction = Mouse.DIRECTION_RIGHT;
-            break;
-       if (direction != Mouse.DIRECTION_NONE;
-            Mouse.turn(direction) ;
-            JPanel.repaint();
+        addKeyListener(new KeyAdapter() {
+        	public void keypressed(KeyEvent e) {
+        		int direction = Mouse.DIRECTION_NONE;
+        		int code = e.getKeyCode();
+        		switch(code) {
+        		case KeyEvent.VK_UP:
+        			direction = Mouse.DIRECTION_UP;
+        			break;
+        		case KeyEvent.VK_DOWN:
+        			direction = Mouse.DIRECTION_DOWN;
+        			break;
+        		case KeyEvent.VK_LEFT:   
+        			direction = Mouse.DIRECTION_LEFT;
+        			break;
+        		case KeyEvent.VK_RIGHT:    
+        			direction = Mouse.DIRECTION_RIGHT;
+        			break;
+        		}
+        		if (direction != Mouse.DIRECTION_NONE) {
+        			mouse.turn(direction) ;
+        			repaint();
+        		}
+        	}
+        });
         //timers
     }
     
