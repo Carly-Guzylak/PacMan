@@ -24,25 +24,29 @@ public class GamePanel extends JPanel{
         requestFocusInWindow();
         //listeners
         addKeyListener(new KeyAdapter()) {
-        keypressed(KeyEvent e);
-        int direction = Mouse.DIRECTION_NONE;
-        int code = e.getKeyCode();
-        switch(direction) {
-        case 1:
-            direction = Mouse.DIRECTION_UP;
-            break;
-        case 2:
-            direction = Mouse.DIRECTION_DOWN;
-            break;
-        case 3:   
-            direction = Mouse.DIRECTION_LEFT;
-            break;
-        case 4:    
-            direction = Mouse.DIRECTION_RIGHT;
-            break;
-       if (direction != Mouse.DIRECTION_NONE;
-            Mouse.turn(direction) ;
-            JPanel.repaint();
+        	public void keypressed(KeyEvent e) {
+        		int direction = Mouse.DIRECTION_NONE;
+        		int code = e.getKeyCode();
+        		switch(direction) {
+        		case 1:
+        			direction = Mouse.DIRECTION_UP;
+        			break;
+        		case 2:
+        			direction = Mouse.DIRECTION_DOWN;
+        			break;
+        		case 3:   
+        			direction = Mouse.DIRECTION_LEFT;
+        			break;
+        		case 4:    
+        			direction = Mouse.DIRECTION_RIGHT;
+        			break;
+        		}
+        		if (direction != Mouse.DIRECTION_NONE) {
+        			Mouse.turn(direction) ;
+        			repaint();
+        		}
+        	}
+        });
         //timers
     }
     
@@ -58,7 +62,7 @@ public class GamePanel extends JPanel{
         //maze
         maze.draw(g);
         //mouse
-        mouse.draw(g);
+        mouse.draw();
         //extra mice
         //cat
     }
