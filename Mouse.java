@@ -53,7 +53,7 @@ public class Mouse {
         }
     }
     
-    public setImage(int direction, String fileName) throws IOException {
+	public void setImage(int direction, String fileName) throws IOException {
         InputStream input = getClass().getResourceAsStream(fileName);
         image[direction] = ImageIO.read(input);
         int imageWidth = image[direction].getWidth();
