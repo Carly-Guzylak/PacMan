@@ -8,7 +8,7 @@ public class GamePanel extends JPanel{
     private int height = 400;
     private Maze maze;
     private Mouse mouse;
-    end of page 314
+    //end of page 314
     
     public GamePanel(ScorePanel scorePanel) {
         this.scorePanel = scorePanel;
@@ -16,7 +16,7 @@ public class GamePanel extends JPanel{
         width = maze.getWidth();
         height = maze.getHeight();
         initGUI();
-        mouse = Mouse(this.gamePanel, this.Maze);
+        mouse = new Mouse(this, this.maze);
     }
     
     private void initGUI() {
@@ -58,7 +58,7 @@ public class GamePanel extends JPanel{
         //maze
         maze.draw(g);
         //mouse
-        mouse.draw();
+        mouse.draw(g);
         //extra mice
         //cat
     }
