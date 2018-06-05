@@ -5,5 +5,4 @@ public class InvalidDataException extends Exception {
         super(invalidData + "is not allowed.");
         this.invalidData = invalidData;
     }
-
 }

@@ -2,6 +2,9 @@
 //Exit Code for NullPointerException = 1
 //Exit Code for IOExeption = 2
 //Exit code for InvalidCharacterException = 3
+//Exit code for InvalidMazeRowLengthException = 4;
+
+//NOTE:  Where to use InvalidDataException??? pg 336
 
 import java.awt.*;
 import javax.swing.*;
