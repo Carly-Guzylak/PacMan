@@ -57,33 +57,34 @@ public class Maze {
                 for(int col = 0; col < columns; col++) {
                     char c = line.charAt(col);   
                     switch (c) {
-                        case 1: c = 'X';    
+                        case 'X':    
                             cell[row][col] = TYPE_WALL; 
                             break;
-                        case 2: c = ' ';
+                        case ' ':
                             cell[row][col] = TYPE_PATH;
                             break;
-                        case 3: c = '.';
+                        case '.':
                             cell[row][col] = TYPE_CHEESE;
                             cheeseCount++;
                             break;
-                        case 4: c = 'M';
+                        case 'M':
                             cell[row][col] = TYPE_PATH;
                             mouseRow = row;
                             mouseCol = col;
                             break;
-                        case 5: c = 'C';
+                        case 'C':
                             cell[row][col] = TYPE_CHEESE;
                             catRow = row;
                             catCol = col;
                             cheeseCount++;
                             break;
-                        case 6: c = 'm';  
+                        case 'm':  
                             cell[row][col] = TYPE_WALL;
                             int x = col * CELL_SIZE;
                             int y = row * CELL_SIZE;
                             extraMiceX.add(x);
                             extraMiceY.add(y);
+                            break;
                         default:
                             throw new InvalidMazeCharacterException(c, FILE_NAME);
                         //end of page 323    
