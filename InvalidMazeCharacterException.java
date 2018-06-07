@@ -19,3 +19,4 @@ public class InvalidMazeCharacterException extends Exception {
         return fileName;
     }
 }
+
