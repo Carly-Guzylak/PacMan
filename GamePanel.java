@@ -10,6 +10,7 @@ public class GamePanel extends JPanel{
     private int height = 400;
     private Maze maze;
     private Mouse mouse;
+    private Timer timer;
     //end of page 314
     
     public GamePanel(ScorePanel scorePanel) {
@@ -19,6 +20,7 @@ public class GamePanel extends JPanel{
         height = maze.getHeight();
         initGUI();
         mouse = new Mouse(this, this.maze);
+        timer.start();
     }
     
     private void initGUI() {
@@ -50,6 +52,16 @@ public class GamePanel extends JPanel{
         	}
         });
         //timers
+        timer = new Timer(60, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	timedAction();
+            }
+        });
+    }
+    
+    public void timedAction() {
+    	mouse.move();
+    	repaint();
     }
     
     public Dimension getPreferredSize() {

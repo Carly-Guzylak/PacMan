@@ -31,6 +31,8 @@ public class Mouse {
     private int changeX = 0;
     private int changeY = 0;
     private int speed;
+    public final MouseRunState STATE_RUN = new MouseRunState(this);
+    private State state;
     
     public Mouse(GamePanel gamePanel, Maze maze) {
         this.gamePanel = gamePanel;
@@ -41,6 +43,7 @@ public class Mouse {
         changeX = 0;
         changeY = 1;
         speed = DEFAULT_SPEED;
+        state = STATE_RUN;
      
         try {
             setImage(DIRECTION_UP, MOUSE_UP);
@@ -72,10 +75,32 @@ public class Mouse {
         
     public void turn(int direction) {
         this.direction = direction;
+        switch(direction) {
+        case DIRECTION_UP:
+        	changeX = 0;
+        	changeY = -1;
+        	break;
+        case DIRECTION_DOWN:
+        	changeX = 0;
+        	changeY = 1;
+        	break;
+        case DIRECTION_LEFT:
+        	changeX = -1;
+        	changeY = 0;
+        	break;
+        case DIRECTION_RIGHT:
+        	changeX = 1;
+        	changeY = 0;
+        	break;
+        }
     }
         
     public void run() {
         x = (x + changeX) * speed;
         y = (y + changeY) * speed;
+    }
+    
+    public void move() {
+    	state.performAction();
     }
 }
