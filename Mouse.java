@@ -103,4 +103,9 @@ public class Mouse {
     public void move() {
     	state.performAction();
     }
+    
+    public void stop() {
+       	changeX = 0;
+       	changeY = 0;
+    }
 }
