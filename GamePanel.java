@@ -28,7 +28,7 @@ public class GamePanel extends JPanel{
         requestFocusInWindow();
         //listeners
         addKeyListener(new KeyAdapter() {
-        	public void keypressed(KeyEvent e) {
+        	public void keyPressed(KeyEvent e) {
         		int direction = Mouse.DIRECTION_NONE;
         		int code = e.getKeyCode();
         		switch(code) {
