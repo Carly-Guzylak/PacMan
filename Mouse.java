@@ -14,10 +14,11 @@ public class Mouse {
     public static final int DIRECTION_DOWN = 2;
     public static final int DIRECTION_LEFT = 3;
     public static final int DIRECTION_NONE = 4;
-    public static final String MOUSE_UP = "mouseUp.gif";
-    public static final String MOUSE_DOWN = "mouseDown.gif";
-    public static final String MOUSE_LEFT = "mouseLeft.gif";
-    public static final String MOUSE_RIGHT = "mouseRight.gif";
+    
+    public static final String MOUSE_UP = "/mouseUp.gif";
+    public static final String MOUSE_DOWN = "/mouseDown.gif";
+    public static final String MOUSE_LEFT = "/mouseLeft.gif";
+    public static final String MOUSE_RIGHT = "/mouseRight.gif";
     private static final int DEFAULT_SPEED = 10;
     //public static final MouseRunState STATE_RUN = new MouseRunState(this);
     private GamePanel gamePanel;
