@@ -20,7 +20,7 @@ public class Mouse {
     public static final String MOUSE_LEFT = "/mouseLeft.gif";
     public static final String MOUSE_RIGHT = "/mouseRight.gif";
     private static final int DEFAULT_SPEED = 10;
-    //public static final MouseRunState STATE_RUN = new MouseRunState(this);
+    public final MouseRunState STATE_RUN = new MouseRunState(this);
     private GamePanel gamePanel;
     private Maze maze;
     private int x;
@@ -32,7 +32,6 @@ public class Mouse {
     private int changeX = 0;
     private int changeY = 0;
     private int speed;
-    public final MouseRunState STATE_RUN = new MouseRunState(this);
     private State state;
     
     public Mouse(GamePanel gamePanel, Maze maze) {
