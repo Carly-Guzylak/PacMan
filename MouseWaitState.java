@@ -9,6 +9,10 @@ public class MouseWaitState implements State {
 	
 	public void enter() {
 		mouse.stop();
+		mouse.moveIntoCell();
+		if(mouse.foundCheese()) {
+			mouse.eatCheese();
+		}
 	}
 
 	public void performAction() {

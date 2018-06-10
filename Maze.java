@@ -46,7 +46,7 @@ public class Maze {
             cell = new int[rows][columns];
             //Note from Book: Maze Data file uses the capital letter M to represent the starting cell
             // for the main mouse, the capital letter C to represent the starting cell for the cat, and
-            // the lowercase letter m to represent the cell for the extra mice.  In file provided,
+            // the lower case letter m to represent the cell for the extra mice.  In file provided,
             // main mouse will be in a path without cheese, cat will be in a path with cheese, and extra
             // mice will be in wall area.
             for(int row = 0; row < rows; row++) {
@@ -144,7 +144,70 @@ public class Maze {
 	public int getMouseX() {
 		return mouseCol * CELL_SIZE;
 	}
+	
 	public int getMouseY() {
 		return mouseRow * CELL_SIZE;
+	}	
+	
+	public boolean wallAt(int x, int y) {
+	    boolean wall = false;
+	    int row = y / CELL_SIZE;
+	    int col = x / CELL_SIZE;
+	    if (cell[row][col] == TYPE_WALL) {
+	        wall = true;	
+	    }
+	    return wall;
 	}
+	
+	public boolean hasCheeseAt(int x, int y) {
+		int row = y / CELL_SIZE;
+		int col = x / CELL_SIZE;
+		boolean cheeseAt = false;
+		if(cell[row][col] == TYPE_CHEESE) {
+			cheeseAt = true;
+		}
+		return cheeseAt;
+	}
+	
+	public void removeCheese(int x, int y) {
+	    int row = y / CELL_SIZE;
+	    int col = x / CELL_SIZE;
+	    cell[row][col] = TYPE_PATH;
+	    cheeseCount--;
+	}
+	
+	public int getRemainingCheese() {
+		return cheeseCount;
+	}
+	
+	public void reset() {
+		for (int row = 1; row <= rows; row++) {
+			String line = mazeData.get(row);
+			for(int col = 1; col <= columns; col++) {
+			    char c = line.charAt(col);
+			    if(c == '.' || c == 'C') {
+			    	cell[row][col] = TYPE_CHEESE;
+			    	cheeseCount++;
+			    }
+			}
+		}
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

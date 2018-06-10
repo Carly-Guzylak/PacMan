@@ -47,8 +47,21 @@ public class GamePanel extends JPanel{
         		}
         		if (direction != Mouse.DIRECTION_NONE) {
         			mouse.turn(direction) ;
+        			//STATE_RUN couldn't be referenced because 
+        			//it is non static, so created getStateRun()
+        			mouse.setState(mouse.STATE_RUN);
         			repaint();
         		}
+        	}	
+        	public void keyReleased(KeyEvent e) {
+        	    int code = e.getKeyCode();
+        	    if (code == KeyEvent.VK_UP 
+        	    	|| code == KeyEvent.VK_DOWN
+        	    	|| code == KeyEvent.VK_LEFT
+        	    	|| code == KeyEvent.VK_RIGHT) {
+        	        mouse.setState(mouse.STATE_WAIT);
+        	        repaint();
+                }
         	}
         });
         //timers
@@ -81,4 +94,63 @@ public class GamePanel extends JPanel{
         //cat
     }
     //end of page 315
+    
+    public void increaseScore() {
+    	scorePanel.addToScore(1);
+    	if(maze.getRemainingCheese() == 0) {
+    		String message = "You got all the cheese!";
+    		endGame(message);
+    	}
+    }
+    
+    public void endGame(String message) {
+    	timer.stop();
+    	repaint();
+    	message = message + " Do you want to play again?";
+    	int option = JOptionPane.showConfirmDialog(this, message, "Play again?", JOptionPane.YES_NO_OPTION);
+    	if(option == JOptionPane.YES_OPTION) {
+    		newGame();
+    	} else {
+    		System.exit(0);
+    	}
+    }
+    
+    private void newGame() {
+    	maze.reset();
+    	scorePanel.reset();
+    	mouse = new Mouse(this, maze);
+    	timer.start();
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
