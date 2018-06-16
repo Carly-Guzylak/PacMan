@@ -11,6 +11,7 @@ public class GamePanel extends JPanel{
     private Maze maze;
     private Mouse mouse;
     private Timer timer;
+    private Cat cat;
     //end of page 314
     
     public GamePanel(ScorePanel scorePanel) {
@@ -21,6 +22,7 @@ public class GamePanel extends JPanel{
         initGUI();
         mouse = new Mouse(this, this.maze);
         timer.start();
+        cat = new Cat(mouse, maze);
     }
     
     private void initGUI() {
@@ -74,6 +76,7 @@ public class GamePanel extends JPanel{
     
     public void timedAction() {
     	mouse.move();
+    	cat.move();
     	repaint();
     }
     
@@ -92,6 +95,7 @@ public class GamePanel extends JPanel{
         mouse.draw(g);
         //extra mice
         //cat
+        cat.draw(g);
     }
     //end of page 315
     

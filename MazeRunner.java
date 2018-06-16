@@ -15,7 +15,7 @@ public abstract class MazeRunner {
     
     protected Maze maze;
     protected int x;
-    protected int y;//hi
+    protected int y;
     protected int direction;
     protected BufferedImage[] image = new BufferedImage[4];
     protected int[] offsetX = new int[4];

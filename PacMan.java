@@ -20,7 +20,7 @@ public class PacMan extends JFrame {
         UIManager.setLookAndFeel(className); 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new PacMan();
+                new PacMan();         
             }
         });
     }
