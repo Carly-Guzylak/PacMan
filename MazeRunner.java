@@ -1,9 +1,9 @@
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import javax.imageio.ImageIO;
 import java.io.InputStream;
 
-import javax.imageio.ImageIO;
 
 public abstract class MazeRunner {
     //directions in clockwise rotational order
@@ -29,9 +29,9 @@ public abstract class MazeRunner {
         InputStream input = getClass().getResourceAsStream(fileName);
         image[direction] = ImageIO.read(input);
         int imageWidth = image[direction].getWidth();
-        offsetX[direction] = Maze.CELL_SIZE - imageWidth;
+        offsetX[direction] = (Maze.CELL_SIZE - imageWidth) / 2;
         int imageHeight = image[direction].getHeight();
-        offsetY[direction] = Maze.CELL_SIZE - imageHeight;
+        offsetY[direction] = (Maze.CELL_SIZE - imageHeight) / 2;
     } 
 	
     public void draw(Graphics g) {

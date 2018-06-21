@@ -26,8 +26,8 @@ public class GamePanel extends JPanel{
     }
     
     private void initGUI() {
-        setFocusable(true);
-        requestFocusInWindow();
+        super.setFocusable(true);
+        super.requestFocusInWindow();
         //listeners
         addKeyListener(new KeyAdapter() {
         	public void keyPressed(KeyEvent e) {
@@ -49,8 +49,6 @@ public class GamePanel extends JPanel{
         		}
         		if (direction != Mouse.DIRECTION_NONE) {
         			mouse.turn(direction) ;
-        			//STATE_RUN couldn't be referenced because 
-        			//it is non static, so created getStateRun()
         			mouse.setState(mouse.STATE_RUN);
         			repaint();
         		}

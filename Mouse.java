@@ -33,7 +33,7 @@ public class Mouse extends MazeRunner{
             setImage(DIRECTION_RIGHT, MOUSE_RIGHT);
         } 
         catch (IOException e) {
-            String message = "Couldn't be read";
+            String message = "Couldn't read mouse image files";
             JOptionPane.showMessageDialog(null, message);
             System.exit(5);
         }
@@ -44,8 +44,8 @@ public class Mouse extends MazeRunner{
     		eatCheese();
     	}
     	if(!(wallInDirection(direction))) {
-            x = (x + changeX) * speed;
-            y = (y + changeY) * speed;
+            x = x + (changeX * speed);
+            y = y + (changeY * speed);
     	}
     }
     
