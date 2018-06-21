@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -67,10 +68,12 @@ public abstract class MazeRunner {
     } 
     
     public void setState(State newState) {
-    	//exit the last state before switching to new state
-    	state.exit();
-    	state = newState;
-    	state.enter();
+    	if (newState != state) {
+        	//exit the last state before switching to new state
+    	    state.exit();
+        	state = newState;
+    	    state.enter();
+    	}
     }
     
     protected boolean wallInDirection(int direction) {
@@ -130,6 +133,14 @@ public abstract class MazeRunner {
         	break;
         }
     }
+    
+    public Rectangle getBounds() {
+    	int width = image[direction].getWidth();
+    	int height = image[direction].getHeight();
+    	Rectangle bounds = new Rectangle(width, height, x, y);
+    	return bounds;
+    }
+    
 }
 
 

@@ -201,6 +201,13 @@ public class Maze {
 		return catRow * CELL_SIZE;
 	}
 	
+	public Rectangle getBounds(int x, int y){
+	    x = x - (x % CELL_SIZE); 
+	    y = y - (y % CELL_SIZE);
+	    Rectangle bounds = new Rectangle(CELL_SIZE, CELL_SIZE, x, y);
+	    return bounds;
+	}
+	
 }
 
 

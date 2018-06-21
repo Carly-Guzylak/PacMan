@@ -1,3 +1,4 @@
+import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.Random;
 
@@ -11,6 +12,7 @@ public class Cat extends MazeRunner {
     public static final int SPEED_WANDER = 5;
     public static final int SPEED_HUNT = 10;
     public final CatWanderState STATE_WANDER = new CatWanderState(this);
+    public final CatHuntState STATE_HUNT = new CatHuntState(this);
     private Mouse mouse;
     private Random rand = new Random();
     
@@ -50,7 +52,7 @@ public class Cat extends MazeRunner {
     		moveIntoCell();
     	    //randomly choose left or right turn
     		int right = (direction + 1) % 4;
-    		int left = (direction + 4) % 4;
+    		int left = (direction + 3) % 4;
     		int pick = rand.nextInt(2);
     		if(pick == 0) {
     			//trying right turn first
@@ -69,6 +71,44 @@ public class Cat extends MazeRunner {
     		}
     	}
     }
+    
+    public void hunt() {
+    	if(withinCell()){
+        	//in which direction is the mouse?
+        	int nextDirection = direction;
+        	int mouseX = mouse.getX();
+        	int mouseY = mouse.getY();
+        	int xDistance = mouseX - x;
+        	int yDistance = mouseY - y;
+        	int absXDistance = Math.abs(xDistance);
+        	int absYDistance = Math.abs(yDistance);
+        	if(absXDistance > absYDistance){
+        		if (xDistance < 0) {
+        			nextDirection = DIRECTION_LEFT;
+        		} else {
+        			nextDirection = DIRECTION_RIGHT;
+        		}
+        	} else {
+        		if(yDistance < 0) {
+        			nextDirection = DIRECTION_UP;
+        		} else {
+        			nextDirection = DIRECTION_DOWN;
+        		}
+        	}
+        	if(!(wallInDirection(nextDirection))) {
+        		turn(nextDirection);
+        	}
+    	}
+    	followPath();
+    }
+    
+    private boolean withinCell() {
+    	Rectangle mazeBounds = maze.getBounds(x, y);
+    	Rectangle catBounds = getBounds();
+    	boolean within = mazeBounds.contains(catBounds);
+    	return within;
+    }
+    
 }
 
 

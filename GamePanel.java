@@ -50,6 +50,7 @@ public class GamePanel extends JPanel{
         		if (direction != Mouse.DIRECTION_NONE) {
         			mouse.turn(direction) ;
         			mouse.setState(mouse.STATE_RUN);
+        			cat.setState(cat.STATE_HUNT);
         			repaint();
         		}
         	}	
@@ -60,6 +61,7 @@ public class GamePanel extends JPanel{
         	    	|| code == KeyEvent.VK_LEFT
         	    	|| code == KeyEvent.VK_RIGHT) {
         	        mouse.setState(mouse.STATE_WAIT);
+        	        cat.setState(cat.STATE_WANDER);
         	        repaint();
                 }
         	}
