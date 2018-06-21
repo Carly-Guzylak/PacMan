@@ -36,7 +36,7 @@ public class PacMan extends JFrame {
     }
    
     private void initGUI() {
-        JLabel titleLabel = new JLabel("PacMan");
+        TitleLabel titleLabel = new TitleLabel("PacMan");
         add(titleLabel, BorderLayout.PAGE_START);
         //mainPanel
         JPanel mainPanel = new JPanel();

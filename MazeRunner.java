@@ -100,8 +100,8 @@ public abstract class MazeRunner {
     }
     
     public void moveIntoCell() {
-        int intoX = x % maze.CELL_SIZE;
-        int intoY = y % maze.CELL_SIZE;
+        int intoX = x % Maze.CELL_SIZE;
+        int intoY = y % Maze.CELL_SIZE;
         switch(direction) {
         case DIRECTION_UP:
         	if(intoY > offsetY[direction]) {
@@ -113,7 +113,7 @@ public abstract class MazeRunner {
         case DIRECTION_DOWN:
         	if(intoY > offsetY[direction]) {
         	    //centering in the next cell
-        		y = y - intoY + maze.CELL_SIZE;
+        		y = y - intoY + Maze.CELL_SIZE;
         	}
         	break;
         case DIRECTION_LEFT:
@@ -125,7 +125,7 @@ public abstract class MazeRunner {
         case DIRECTION_RIGHT:
         	if(intoX > offsetX[direction]) {
         		//centering in the next cell
-        		x = x - intoX + maze.CELL_SIZE;
+        		x = x - intoX + Maze.CELL_SIZE;
         	}
         	break;
         }
