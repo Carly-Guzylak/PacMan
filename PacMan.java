@@ -3,7 +3,7 @@
 //Exit Code for IOExeption = 2
 //Exit code for InvalidCharacterException = 3
 //Exit code for InvalidMazeRowLengthException = 4;
-
+//hi
 
 import java.awt.*;
 import javax.swing.*;
